@@ -2,7 +2,7 @@ ARG BASE_IMAGE_PREFIX
 
 FROM multiarch/qemu-user-static as qemu
 
-FROM ${BASE_IMAGE_PREFIX}openjdk:8-jre-alpine AS builder
+FROM bellsoft/liberica-openjdk-alpine:10.0.2 AS builder
 
 COPY --from=qemu /usr/bin/qemu-*-static /usr/bin/
 
