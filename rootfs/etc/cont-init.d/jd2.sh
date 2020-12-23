@@ -13,17 +13,17 @@ fi
 mkdir -p /data/JDownloader
 
 # Check JDownloader.jar integrity and removes it in case it's not
-if [ -f /data/JDownloader/JDownloader.jar ]; then
-    jar tvf /data/JDownloader/JDownloader.jar > /dev/null 2>&1
-    if [ $? -ne 0 ]; then
-        rm /data/JDownloader/JDownloader.jar
-    fi
-fi
+#if [ -f /data/JDownloader/JDownloader.jar ]; then
+#    jar tvf /data/JDownloader/JDownloader.jar > /dev/null 2>&1
+#    if [ $? -ne 0 ]; then
+#        rm /data/JDownloader/JDownloader.jar
+#    fi
+#fi
 
 # Check if JDownloader.jar exists, or if there is an interrupted update
-if [ ! -f /data/JDownloader/JDownloader.jar ] && [ -f /data/JDownloader/tmp/update/self/JDU/JDownloader.jar ]; then
-    cp /data/JDownloader/tmp/update/self/JDU/JDownloader.jar /data/JDownloader/
-fi
+#if [ ! -f /data/JDownloader/JDownloader.jar ] && [ -f /data/JDownloader/tmp/update/self/JDU/JDownloader.jar ]; then
+#    cp /data/JDownloader/tmp/update/self/JDU/JDownloader.jar /data/JDownloader/
+#fi
 
 # Redownload if no JDownloader exists
 if [ ! -f /data/JDownloader/JDownloader.jar ]; then
