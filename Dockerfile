@@ -23,7 +23,8 @@ ARG JEMALLOC_VERSION=5.2.1
 
 # Base system
 WORKDIR /usr/src
-ARG DOCKER_IMAGE_ARCH
+ARG S6_OVERLAY_ARCH
+ARG TEMPIO_ARCH
 
 RUN \
     set -x \
@@ -37,7 +38,7 @@ RUN \
     && apk add --no-cache --virtual .build-deps \
         build-base \
     \
-    && curl -L -f -s "https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-${DOCKER_IMAGE_ARCH}.tar.gz" \
+    && curl -L -f -s "https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-${S6_OVERLAY_ARCH}.tar.gz" \
         | tar zxvf - -C / \
     && mkdir -p /etc/fix-attrs.d \
     && mkdir -p /etc/services.d \
@@ -56,7 +57,7 @@ RUN \
     && ln -s /usr/lib/bashio/bashio /usr/bin/bashio \
     \
     && curl -L -f -s -o /usr/bin/tempio \
-        "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${DOCKER_IMAGE_ARCH}" \
+        "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${TEMPIO_ARCH}" \
     && chmod a+x /usr/bin/tempio \
     \
     && apk del .build-deps \
