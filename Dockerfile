@@ -1,8 +1,8 @@
-ARG BASE_IMAGE_PREFIX
+ARG BELLSOFT_ARCH
 
 FROM multiarch/qemu-user-static as qemu
 
-FROM bellsoft/liberica-openjdk-alpine:10.0.2 AS builder
+FROM bellsoft/liberica-openjdk-alpine:10.0.2-${BELLSOFT_ARCH} AS builder
 
 COPY --from=qemu /usr/bin/qemu-*-static /usr/bin/
 
