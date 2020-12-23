@@ -1,0 +1,7 @@
+#!/usr/bin/with-contenv sh
+# ==============================================================================
+# Start JDownloader service
+# ==============================================================================
+
+echo "Starting JDownloader..."
+s6-setuidgid root java -Dsun.jnu.encoding=UTF-8 -Dfile.encoding=UTF-8 -Djava.awt.headless=true -jar /data/JDownloader/JDownloader.jar -norestart
