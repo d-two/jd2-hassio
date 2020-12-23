@@ -1,1 +1,1 @@
-# docker-multiarch-skel
+# JDownloader 2
